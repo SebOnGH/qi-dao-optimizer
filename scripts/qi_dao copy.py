@@ -10,10 +10,6 @@ from brownie import (
 import requests, json, time, os
 from web3 import Web3
 
-# Redirecting output to file (fileOutput.txt) for sending later to Telegram
-# Enhancement : Send Telegram message only when Repay or Borrow occured ! (TODO)
-
-import sys
 
 def get_network(network_id):
     network_array = network_id.split("-")
@@ -22,6 +18,7 @@ def get_network(network_id):
 
 NETWORK_ID = get_network(network.show_active())
 MAI_CONTRACT = config["networks"][NETWORK_ID]["tokens"]["mai"]
+
 
 class Vault:
     def __init__(self, vault, acc_id, vault_id):
@@ -62,11 +59,8 @@ class Vault:
         self.mai_reserves = self.get_debt_ceiling()
 
         self.print_values()
-      
 
     def print_values(self):
-        file_path = 'fileOutput.txt'
-        sys.stdout = open(file_path, "a")
         print(f"{self.vault.name()}: ${round(self.collateral_price, 3)}")
 
         print(f"Collateral: {round(self.collateral,3)} in {self.vault.name()}")
@@ -80,8 +74,6 @@ class Vault:
         print(f"Min debt ratio: {self.min_debt_ratio}%")
 
     def borrow(self):
-        file_path = 'fileOutput.txt'
-        sys.stdout = open(file_path, "a")
         if self.mai_reserves < self.borrow_amount:
             amount = self.mai_reserves - 1
         else:
@@ -98,8 +90,6 @@ class Vault:
             return tx
 
     def repay(self):
-        file_path = 'fileOutput.txt'
-        sys.stdout = open(file_path, "a")
         amount = self.debt - self.max_borrow
         if amount > self.debt / 100:
             amount_wei = Web3.toWei(amount, "ether")
@@ -124,8 +114,6 @@ class Vault:
 
 
 def get_account(_filename):
-    file_path = 'fileOutput.txt'
-    sys.stdout = open(file_path, "w")
     native = config["networks"][NETWORK_ID]["native"]
     account = accounts.load(_filename, os.environ["p1"])
     account_balance = account.balance() / 10 ** 18
@@ -160,8 +148,6 @@ def get_price_chainlink(contract_address):
 
 
 def main(vault_contract, acc_id, vault_id):
-    file_path = 'fileOutput.txt'
-    sys.stdout = open(file_path, "a")
     vault_contract_address = config["networks"][NETWORK_ID]["tokens"][vault_contract]
     vault_contract = interface.MaiVault(vault_contract_address)
     vault = Vault(vault_contract, acc_id, vault_id)

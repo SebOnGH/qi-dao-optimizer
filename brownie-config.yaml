@@ -74,8 +74,8 @@ networks:
       vGMVT: "0x1F0aa72b980d65518e88841bA1dA075BD43fa933"
       LMVT: "0x61167073E31b1DAd85a3E531211c7B8F1E5cAE72"
     camWMATIC MAI Vault: 
-      max_debt_ratio: 160
-      min_debt_ratio: 170
+      max_debt_ratio: 140
+      min_debt_ratio: 280
       precision: 18
     camAAVE MAI Vault: 
       max_debt_ratio: 160

@@ -1,0 +1,12 @@
+Account loaded
+MATIC Balance: 1.655
+MAI Balance: 4.816
+
+camWMATIC MAI Vault: $1.004
+Collateral: 8.397 in camWMATIC MAI Vault
+Collateral (USD): $8.43
+Debt ceiling: 5959626.613 MAI
+Debt: 4.816 MAI
+Collateral to debt ratio: 175.09%
+Max debt ratio: 140%
+Min debt ratio: 280%
