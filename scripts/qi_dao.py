@@ -12,7 +12,6 @@ from web3 import Web3
 
 # Redirecting output to file (fileOutput.txt) for sending later to Telegram
 # Enhancement : Send Telegram message only when Repay or Borrow occured ! (TODO)
-
 import sys
 
 def get_network(network_id):
@@ -86,8 +85,8 @@ class Vault:
             amount = self.mai_reserves - 1
         else:
             amount = self.borrow_amount
-
-        if amount < 1:
+        #miMATIC min amountto borrow
+        if amount < 5:
             print(f"You need to borrow more than 1 miMATIC {amount}!")
             return
         else:
