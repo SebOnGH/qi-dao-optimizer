@@ -65,7 +65,7 @@ do
     brownie run scripts/qi_dao.py main $function $acc_id $vault_id --network $network_id
     echo
     # SE - Send vault status to Telegram
-    #./send-telegram.sh
+    ./send-telegram.sh
     while [ $counter -gt -1 ]
     do
         echo Waiting $counter seconds
