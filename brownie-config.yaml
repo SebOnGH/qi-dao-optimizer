@@ -66,6 +66,7 @@ networks:
       btc: '0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6'
       eth: '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619'
       mai: '0xa3Fa99A148fA48D14Ed51d610c367C61876997F1'
+      crv: '0x172370d5Cd63279eFa6d502DAB29171933a610AF'
       camAAVE: '0x578375c3af7d61586c2C3A7BA87d2eEd640EFA40'
       camWMATIC: "0x88d84a85A87ED12B8f098e8953B322fF789fCD1a"
       camWBTC: "0x7dda5e1a389e0c1892caf55940f5fce6588a9ae0"
@@ -73,6 +74,7 @@ networks:
       cxDMVT: "0x7cbf49e4214c7200af986bc4aacf7bc79dd9c19a"
       vGMVT: "0x1F0aa72b980d65518e88841bA1dA075BD43fa933"
       LMVT: "0x61167073E31b1DAd85a3E531211c7B8F1E5cAE72"
+      CMVT: "0x98B5F32dd9670191568b661a3e847Ed764943875"
     camWMATIC MAI Vault: 
       max_debt_ratio: 140
       min_debt_ratio: 280
@@ -101,6 +103,10 @@ networks:
       max_debt_ratio: 170
       min_debt_ratio: 190
       precision: 18
+    CRV MAI Vault:
+      max_debt_ratio: 170
+      min_debt_ratio: 500
+      precision: 18      
 wallets:
   from_key: ${PRIVATE_KEY}
   from_mnemonic: ${MNEMONIC}

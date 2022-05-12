@@ -6,3 +6,5 @@ __pycache__
 build/
 reports/
 .vscode
+fileOutput.txt
+send-telegram.sh
