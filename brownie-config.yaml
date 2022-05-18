@@ -76,8 +76,8 @@ networks:
       LMVT: "0x61167073E31b1DAd85a3E531211c7B8F1E5cAE72"
       CMVT: "0x98B5F32dd9670191568b661a3e847Ed764943875"
     camWMATIC MAI Vault: 
-      max_debt_ratio: 140
-      min_debt_ratio: 280
+      max_debt_ratio: 170
+      min_debt_ratio: 190
       precision: 18
     camAAVE MAI Vault: 
       max_debt_ratio: 160
@@ -105,7 +105,7 @@ networks:
       precision: 18
     CRV MAI Vault:
       max_debt_ratio: 170
-      min_debt_ratio: 500
+      min_debt_ratio: 190
       precision: 18      
 wallets:
   from_key: ${PRIVATE_KEY}

@@ -85,9 +85,9 @@ class Vault:
             amount = self.mai_reserves - 1
         else:
             amount = self.borrow_amount
-        #miMATIC min amountto borrow
+        #miMATIC min amount to borrow
         if amount < 5:
-            print(f"You need to borrow more than 1 miMATIC {amount}!")
+            print(f"You need to borrow more than 5 miMATIC {amount}!")
             return
         else:
             amount_wei = Wei(f"{amount} ether")
@@ -100,6 +100,7 @@ class Vault:
         file_path = 'fileOutput.txt'
         sys.stdout = open(file_path, "a")
         amount = self.debt - self.max_borrow
+        #print(f"DBG Repay : {amount}")
         if amount > self.debt / 100:
             amount_wei = Web3.toWei(amount, "ether")
             print(f"You are about to repay {amount} ({amount_wei})")
